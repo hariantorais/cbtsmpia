@@ -33,7 +33,7 @@ $kelas = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM kelas WHERE id
 		height: 150px;
 	}
 	.ukuran{
-		font-size: 15px;
+		font-size: 14px;
 	}
 	.ukuran2{
 		font-size: 12px;
@@ -55,7 +55,7 @@ $kelas = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM kelas WHERE id
 				<div style='width:10.4cm;border:1px solid #666;'>
 					<table style="text-align:center; width:100%">
 						<tr>
-							<td style="text-align:left; vertical-align:top">
+							<td style="text-align:center; vertical-align:top">
 								<?php
 									$tempdir = '../foto/qrcode/';
 									$tempatpng = $tempdir . $nopeserta . '.png';
@@ -68,7 +68,7 @@ $kelas = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM kelas WHERE id
 										QRcode::png($setting['ip_server'], $tempatip, 'M', 1);
 									}
 									?>
-								<img src='../foto/logo_tut.svg' height='60px'>
+								<img src="../<?= $setting['logo'] ?>" height='60px' />
 							</td>
 							<td style="text-align:center">
 								<!-- <b>
@@ -82,9 +82,9 @@ $kelas = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM kelas WHERE id
 									TAHUN PELAJARAN <?= $ajaran ?>
 								</b>
 							</td>
-							<td style="text-align:right; vertical-align:top">
-								<img src="../<?= $setting['logo'] ?>" height='60px' />
-							</td>
+							<!-- <td style="text-align:right; vertical-align:top">
+								<img src='../foto/logo_tut.svg' height='60px'>
+							</td> -->
 						</tr>
 					</table>
 					<hr>
