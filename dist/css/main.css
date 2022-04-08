@@ -156,10 +156,12 @@ iframe {
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
-body{
+/*body{
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   background:url('../img/bg-header.jpg'); 
-}
+}*/
 .limiter {
   width: 100%;
   margin: 0 auto;
@@ -178,6 +180,13 @@ body{
   align-items: center;
   padding: 15px;
    
+}
+
+@media screen and (max-width: 1024px) {
+    img.bg {
+     left: 50%;
+     margin-left: -512px;   /* 50% */
+    }
 }
 
 .wrap-login100 {

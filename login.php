@@ -34,22 +34,23 @@ if ($cekdb == false) {
 	<link rel='stylesheet' href='<?php echo $homeurl; ?>/plugins/sweetalert2/dist/sweetalert2.min.css'>
 </head>
 
-<body>
+<body style="background-image: url('dist/img/bg-header.jpg'); background-size: cover; background-attachment: fixed;">
 
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="animated flipInX wrap-login100" style="padding-top:30px">
 				<form id="formlogin" action="ceklogin.php" class="login100-form validate-form">
-					<span class="animated infinite pulse delay-5s login100-form-title p-b-26 ">
+					<span class="animated infinite pulse delay-5s login100-form-title p-b-10 ">
 						<img src="<?php echo $setting['logo']; ?>" style="max-height:50px" class="img-responsive" alt="Responsive image">
 						
 					</span>
-					<span class=" login100-form-title p-b-26 ">
+					<span class=" login100-form-title p-b-10 ">
 						
-						<?php echo $setting['sekolah']; ?>
+						<!-- <?php echo $setting['sekolah']; ?> -->
+						SMPIA-CBT
 
 					</span>
-					<div class="animated flipInX delay-10s p-b-20">
+					<div class="animated flipInX delay-10s p-b-10">
 						<span>Silahkan Login dengan username dan password yang anda miliki</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Enter Username" required>
