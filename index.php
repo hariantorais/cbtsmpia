@@ -202,6 +202,7 @@ $tglsekarang = time();
                     <!-- <li><a href='<?= $homeurl ?>/tugassiswa'><i class='fas fa-edit fa-fw  '></i> <span> Tugas Siswa</span></a></li> -->
                     
                     <li><a href='<?= $homeurl ?>/hasil'><i class='fas fa-tags fa-fw '></i> <span> Hasil Ujian</span></a></li>
+                    <li><a href='<?= $homeurl ?>/pesan'><i class='fas fa-comment fa-fw '></i> <span> Pesan & Kesan</span></a></li>
                      <!-- <li><a href='brocandycbt.apk'><i class='fas fa-fw  fa-star'></i> <span>Exambro</span></a></li> -->
                 </ul><!-- /.sidebar-menu -->
             </section>
@@ -703,6 +704,7 @@ $tglsekarang = time();
                                                             <th>Kode Tes</th>
                                                             <th class='hidden-xs'>Ujian Selesai</th>
                                                             <th class='hidden-xs'>Status</th>
+                                                            <th>Nilai</th>
                                                             <th></th>
                                                         </tr>
                                                     </thead>
@@ -719,6 +721,11 @@ $tglsekarang = time();
                                                                 <td><?= $mapel['nama'] . '-' . $namamapel['nama_mapel'] ?></td>
                                                                 <td class='hidden-xs'><?= $nilai['ujian_selesai'] ?></td>
                                                                 <td class='hidden-xs'><label class='label label-primary'>Selesai</label></td>
+                                                                <td>
+                                                                    <b>
+                                                                        <?php echo $nilai['total'] ?>
+                                                                    </b>
+                                                                </td>
                                                                 <td>
                                                                     <a href="<?= $homeurl . '/lihathasil/' . enkripsi($nilai['id_ujian']) ?>"><button class='btn btn-sm btn-success'><i class='fa fa-search'></i> Lihat Hasil</button></a>
                                                                 </td>
@@ -762,6 +769,24 @@ $tglsekarang = time();
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php elseif ($pg == 'pesan') : ?>
+                    <div class='row'>
+                        <div class='col-md-12'>
+                            <div class='box box-solid'>
+                                <div class='box-header with-border'>
+                                    <h3 class='box-title'><i class="fas fa-file-signature    "></i> Pesan dan Kesan Santri</h3>
+                                </div><!-- /.box-header -->
+                                <div class='box-body'>
+                                    <?php $query_siswa = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_siswa='$id_siswa'")); ?>
+                                   <form method="post" action="simpanpesan.php">
+                                       <textarea placeholder="Tulis pesan dan kesan antum disini..." name="pesan" class="form-control" rows="8"><?php echo $query_siswa['pesan'] ?></textarea> <br>
+                                       <input type="hidden" name="id_siswa" value="<?php echo $query_siswa['id_siswa'] ?>">
+                                       <button class="btn btn-primary" type="submit">Simpan</button>
+                                   </form>
                                 </div>
                             </div>
                         </div>

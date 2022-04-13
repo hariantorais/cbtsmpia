@@ -322,6 +322,7 @@ $ujian = mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM ujian where statu
 						</li>
 
 						<li class='treeview'><a href='?pg=pengumuman'><i class="fas fa-bullhorn side-menu-icon fa-fw"></i> <span> Pengumuman</span></a></li>
+						<li class='treeview'><a href='?pg=pesan_kesan'><i class="fas fa-comment side-menu-icon fa-fw"></i> <span> Pesan & Kesan</span></a></li>
 						<li class='treeview'>
 							<a href='#'><i class="fas fa-users-cog side-menu-icon fa-fw"></i> <span>Manajemen User</span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
 							<ul class='treeview-menu'>
@@ -930,6 +931,67 @@ $ujian = mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM ujian where statu
 															</div>
 														</div>
 													</div>
+												<?php endwhile ?>
+											</tbody>
+										</table>
+									</div>
+								</div><!-- /.box-body -->
+							</div><!-- /.box -->
+						</div>
+					</div>
+					<script>
+						tinymce.init({
+							selector: '#txtpengumuman',
+							plugins: [
+								'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+								'searchreplace wordcount visualblocks visualchars code fullscreen',
+								'insertdatetime media nonbreaking save table contextmenu directionality',
+								'emoticons template paste textcolor colorpicker textpattern imagetools uploadimage paste'
+							],
+
+							toolbar: 'bold italic fontselect fontsizeselect | alignleft aligncenter alignright bullist numlist  backcolor forecolor | emoticons code | imagetools link image paste ',
+							fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+							paste_data_images: true,
+							paste_as_text: true,
+							images_upload_handler: function(blobInfo, success, failure) {
+								success('data:' + blobInfo.blob().type + ';base64,' + blobInfo.base64());
+							},
+							image_class_list: [{
+								title: 'Responsive',
+								value: 'img-responsive'
+							}],
+						});
+					</script>
+				<?php elseif ($pg == 'pesan_kesan') : ?>
+					<div class='row'>
+						<div class='col-md-12'>
+							<div class='box box-solid'>
+								<div class='box-header with-border'>
+									<h3 class='box-title'> Pesan dan Kesan Santri</h3>
+								</div><!-- /.box-header -->
+								<div class='box-body'>
+									<div class='table-responsive'>
+										<table id='example1' class='table table-bordered table-striped'>
+											<thead>
+												<tr>
+													<th width='5px'></th>
+													<th>Nama</th>
+													<th>Kelas</th>
+													<th>Pesan Kesan</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php $query_siswa = mysqli_query($koneksi, "SELECT * FROM siswa"); ?>
+												<?php $no = 1; 
+													while ($data_siswa = mysqli_fetch_array($query_siswa)) : ?>
+													<tr>
+														<td><?= $no++ ?></td>
+														<td><?= $data_siswa['nama'] ?></td>
+														<td><?php echo $data_siswa['id_kelas'] ?></td>
+														<td>
+															<?php echo $data_siswa['pesan'] ?>
+														</td>
+													</tr>
 												<?php endwhile ?>
 											</tbody>
 										</table>
