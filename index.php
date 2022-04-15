@@ -701,7 +701,7 @@ $tglsekarang = time();
                                                     <thead>
                                                         <tr>
                                                             <th width='5px'>#</th>
-                                                            <th>Kode Tes</th>
+                                                            <th>MATA PELAJARAN</th>
                                                             <th class='hidden-xs'>Ujian Selesai</th>
                                                             <th class='hidden-xs'>Status</th>
                                                             <th>Nilai</th>
@@ -718,8 +718,8 @@ $tglsekarang = time();
                                                             ?>
                                                             <tr>
                                                                 <td><?= $no ?></td>
-                                                                <td><?= $mapel['nama'] . '-' . $namamapel['nama_mapel'] ?></td>
-                                                                <td class='hidden-xs'><?= $nilai['ujian_selesai'] ?></td>
+                                                                <td><?= $namamapel['nama_mapel'] ?></td>
+                                                                <td class='hidden-xs'><?= date('d-m-Y H:i:s', strtotime($nilai['ujian_selesai'])) ?></td>
                                                                 <td class='hidden-xs'><label class='label label-primary'>Selesai</label></td>
                                                                 <td>
                                                                     <b>
@@ -727,7 +727,7 @@ $tglsekarang = time();
                                                                     </b>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="<?= $homeurl . '/lihathasil/' . enkripsi($nilai['id_ujian']) ?>"><button class='btn btn-sm btn-success'><i class='fa fa-search'></i> Lihat Hasil</button></a>
+                                                                    <a href="<?= $homeurl . '/lihathasil/' . enkripsi($nilai['id_ujian']) ?>"><button class='btn btn-sm btn-success'><i class='fa fa-search'></i> Detail</button></a>
                                                                 </td>
                                                             </tr>
                                                         <?php endwhile; ?>
@@ -783,8 +783,10 @@ $tglsekarang = time();
                                 <div class='box-body'>
                                     <?php $query_siswa = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_siswa='$id_siswa'")); ?>
                                    <form method="post" action="simpanpesan.php">
-                                       <textarea placeholder="Tulis pesan dan kesan antum disini..." name="pesan" class="form-control" rows="8"><?php echo $query_siswa['pesan'] ?></textarea> <br>
-                                       <input type="hidden" name="id_siswa" value="<?php echo $query_siswa['id_siswa'] ?>">
+                                       <input type="text" class="form-control" name="panggilan" placeholder="Nama Panggilan" value="<?php echo $query_siswa['panggilan'] ?>">
+                                       <input type="text" class="form-control" value="<?php echo $query_siswa['facebook'] ?>" name="facebook" placeholder="Facebook">
+                                       <input type="text" class="form-control" value="<?php echo $query_siswa['instagram'] ?>" name="instagram" placeholder="Instagram">
+                                       <textarea placeholder="Tulis pesan dan kesan antum selama di SMP Islam As-Sunnah" name="pesan" class="form-control" rows="8"><?php echo $query_siswa['pesan'] ?></textarea> <br>
                                        <button class="btn btn-primary" type="submit">Simpan</button>
                                    </form>
                                 </div>

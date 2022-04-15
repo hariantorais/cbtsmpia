@@ -975,6 +975,7 @@ $ujian = mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM ujian where statu
 											<thead>
 												<tr>
 													<th width='5px'></th>
+													<th></th>
 													<th>Nama</th>
 													<th>Kelas</th>
 													<th>Pesan Kesan</th>
@@ -986,9 +987,16 @@ $ujian = mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM ujian where statu
 													while ($data_siswa = mysqli_fetch_array($query_siswa)) : ?>
 													<tr>
 														<td><?= $no++ ?></td>
+														<td>
+															<img width="60px" src="../foto/fotosiswa/<?php echo $data_siswa['foto'] ?>">
+														</td>
 														<td><?= $data_siswa['nama'] ?></td>
 														<td><?php echo $data_siswa['id_kelas'] ?></td>
 														<td>
+															<b>Panggilan :</b> <?php echo $data_siswa['panggilan'] ?> <br>
+															<b>Facebook : </b><?php echo $data_siswa['facebook'] ?> <br>
+															<b>Instagram : </b><?php echo $data_siswa['instagram'] ?> <br><br>
+															<b>Pesan & Kesan :</b> <br>
 															<?php echo $data_siswa['pesan'] ?>
 														</td>
 													</tr>
