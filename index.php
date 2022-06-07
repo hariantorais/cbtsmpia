@@ -561,7 +561,7 @@ $tglsekarang = time();
                                                 <th>Nama</th>
                                                 <td width='10'>:</td>
                                                 <td><?= $siswa['nama'] ?></td>
-                                                <td rowspan='4' style='font-size:30px; text-align:center; width:150'><?= $nilai['total'] ?></td>
+                                                <td rowspan='4' style='font-size:30px; text-align:center; width:150'><?= round($nilai['total'], 2) ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Kelas</th>
@@ -647,7 +647,7 @@ $tglsekarang = time();
                                                                     <tr <?= $style ?>>
                                                                         <td style='text-align:center'><?= $no ?></td>
                                                                         <td><?= $siswa['nama'] ?></td>
-                                                                        <td style='text-align:center'><?= $peringkat['skor'] ?></td>
+                                                                        <td style='text-align:center'><?= round($peringkat['skor'],2) ?></td>
                                                                     </tr>
                                                                 <?php endwhile; ?>
                                                             </tbody>
@@ -723,7 +723,7 @@ $tglsekarang = time();
                                                                 <td class='hidden-xs'><label class='label label-primary'>Selesai</label></td>
                                                                 <td>
                                                                     <b>
-                                                                        <?php echo $nilai['total'] ?>
+                                                                        <?php echo round($nilai['total'],2) ?>
                                                                     </b>
                                                                 </td>
                                                                 <td>
