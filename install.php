@@ -10,13 +10,13 @@ if (!$pilihdb) {
 	$ket2 = 'disabled';
 }
 if (isset($_POST['buat'])) {
-	$nama_db = 'ecandy28r3';
+	$nama_db = 'cbt';
 
 	mysqli_query($koneksi, "CREATE DATABASE $nama_db CHARACTER SET utf8 COLLATE utf8_general_ci;");
 	header('location:admin/login.php');
 }
 if (isset($_POST['buat2'])) {
-	$filename = 'config/ecandy28r3.sql';
+	$filename = 'config/cbt.sql';
 	$templine = '';
 	$lines = file($filename);
 	foreach ($lines as $line) {
@@ -62,28 +62,12 @@ if (isset($_POST['buat2'])) {
 <body class="hold-transition skin-blue layout-top-nav">
 
 	<div class="wrapper">
-		<header class="main-header">
-			<nav class="navbar navbar-fixed-top bg-maroon">
-				<div class="container">
-					<div class="navbar-header">
-						<a href="?" class="animated bounce navbar-brand" style="padding:5px 15px;"><b>CANDY</b> INSTALLER</a>
-					</div>
-				</div>
-			</nav>
-		</header>
 
 		<!-- Full Width Column -->
-		<div class="content-wrapper" style="background:url(dist/img/octo.gif);background-size: cover;">
+		<div class="content-wrapper">
 
 			<div class="container">
 				<!-- Content Header (Page header) -->
-				<section class="content-header">
-					<h1 class='animated bounce'>
-						<b> CBT CANDY</b>
-						<small>Computer Base Test</small>
-					</h1>
-
-				</section>
 
 				<!-- Main content -->
 				<section class="content">
@@ -122,7 +106,7 @@ if (isset($_POST['buat2'])) {
 		<footer class="main-footer hidden-xs navbar-fixed-bottom">
 			<div class="container">
 				<div class="pull-left ">
-					<b>Candy Installer @ 2019</b>
+					<b>Aplikasi Installer @ 2019</b>
 				</div>
 				<div class="pull-right ">
 					<b><?= "versi " . VERSI . " revisi " . REVISI ?></b>
